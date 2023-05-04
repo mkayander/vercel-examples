@@ -23,15 +23,22 @@ Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_mediu
 Execute [`create-next-app`](https://github.com/vercel/next.js/tree/main/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
 
 ```bash
-npx create-next-app --example https://github.com/vercel/examples/tree/main/edge-functions/wasm-rust-xor wasm-rust-xor
+npx create-next-app --example https://github.com/vercel/examples/tree/main/edge-api-routes/wasm-rust-xor wasm-rust-xor
 # or
-yarn create next-app --example https://github.com/vercel/examples/tree/main/edge-functions/wasm-rust-xor wasm-rust-xor
+yarn create next-app --example https://github.com/vercel/examples/tree/main/edge-api-routes/wasm-rust-xor wasm-rust-xor
 ```
 
 To build and run the example locally, you'll need to install the following prerequisites:
 
 1. [Rust](https://www.rust-lang.org/tools/install): The API Route for this example is written in Rust and requires the Rust toolchain to build.
-2. [`wasm-pack`](https://rustwasm.github.io/wasm-pack/installer/): is a helpful utility that builds, optimizes and packages Rust into WebAssembly. This example uses it for the build and optimization step (although it does not use it for packaging).
+2. [`wasm-pack`](https://rustwasm.github.io/wasm-pack/installer/): is a helpful utility that builds, optimizes and packages Rust into WebAssembly. This example uses it for the build and optimization step (although it does not use it for packaging)
+
+To build Wasm from the Rust source, you can use the following commands. This will create the `wasm.js` and `wasm_bg.wasm` files required by the application on the `pkg` folder.
+
+```bash
+cd wasm
+wasm-pack build --target web
+```
 
 Then, install the Vercel CLI which you'll use to run the app:
 

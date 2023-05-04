@@ -5,8 +5,10 @@ description: Learn to leverage Vercel's Domains API to add and remove domains pr
 framework: Next.js
 useCase: Documentation
 css: Tailwind
-deployUrl: https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/domains-api&project-name=domains-api&repository-name=domains-api&env=AUTH_BEARER_TOKEN,VERCEL_PROJECT_ID,VERCEL_TEAM_ID
+deployUrl: https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/domains-api&project-name=domains-api&repository-name=domains-api&env=AUTH_BEARER_TOKEN,PROJECT_ID_VERCEL,TEAM_ID_VERCEL
 demoUrl: https://domains-api.vercel.app
+relatedTemplates:
+  - platforms-starter-kit
 ---
 
 # Domains API
@@ -30,8 +32,8 @@ https://domains-api.vercel.app/
 
 You'll need to configure 3 different environment variables for this project to work:
 
-- `VERCEL_PROJECT_ID`: The ID of the Vercel project you want to add/remove domains from. You can find it under the "Settings" tab in your project's dashboard.
-- `VERCEL_TEAM_ID`: The ID of the Vercel team you want to add/remove domains from. You can find it under the "Settings" tab in your team's dashboard.
+- `PROJECT_ID_VERCEL`: The ID of the Vercel project you want to add/remove domains from. You can find it under the "Settings" tab in your project's dashboard.
+- `TEAM_ID_VERCEL`: The ID of the Vercel team you want to add/remove domains from. You can find it under the "Settings" tab in your team's dashboard.
 - `AUTH_BEARER_TOKEN`: Your personal auth bearer token that gives you programmatic access to your Vercel account. You can create one under the "Tokens" tab in your personal account's settings tab.
 
 ### 1. Adding Domains
@@ -46,7 +48,7 @@ When a domain is added, there are 3 possible outcomes:
 
 #### Verifying Project Domain
 
-Verifying a project domain can be done with the `/v9/projeccts/{projectId}/domains/{domain}/verify` endpoint as shown [here](./pages/api/verify-domain.js) ([full documentation](https://vercel.com/docs/rest-api#endpoints/projects/verify-project-domain)).
+Verifying a project domain can be done with the `/v9/projects/{projectId}/domains/{domain}/verify` endpoint as shown [here](./pages/api/verify-domain.js) ([full documentation](https://vercel.com/docs/rest-api#endpoints/projects/verify-project-domain)).
 
 ### 2. Auto-checking Domain Configuration
 
@@ -71,32 +73,24 @@ To remove a domain, you can use the `/v8/projects/{idOrName}/domains` endpoint a
 
 You can choose from one of the following two methods to use this repository:
 
-**One-Click Deploy**
+### One-Click Deploy
 
 Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=platforms-eap):
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/domains-api&project-name=domains-api&repository-name=domains-api&env=AUTH_BEARER_TOKEN,VERCEL_PROJECT_ID,VERCEL_TEAM_ID)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/solutions/domains-api&project-name=domains-api&repository-name=domains-api&env=AUTH_BEARER_TOKEN,PROJECT_ID_VERCEL,TEAM_ID_VERCEL)
 
-**Clone and Deploy**
+### Clone and Deploy
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [pnpm](https://pnpm.io/installation) to bootstrap the example:
 
 ```bash
-npx create-next-app --example https://github.com/vercel/examples/tree/main/solutions/domains-api domains-api
-# or
-yarn create next-app --example https://github.com/vercel/examples/tree/main/solutions/domains-api domains-api
+pnpm create next-app --example https://github.com/vercel/examples/tree/main/solutions/domains-api domains-api
 ```
 
 Next, run Next.js in development mode:
 
 ```bash
-npm install
-npm run dev
-
-# or
-
-yarn
-yarn dev
+pnpm dev
 ```
 
 Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=platforms-eap) ([Documentation](https://nextjs.org/docs/deployment)).
